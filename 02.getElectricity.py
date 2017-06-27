@@ -7,23 +7,24 @@ import csv
 
 
 year = '2016'
-month = 2
+month = 2 #All data start from Feb.
 urllist = []
 # read csv,get url
 
-with open(year + 'contents.txt', newline='') as csvfile:
+with open('data/' + year + '_urllist.csv', newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
     for row in spamreader:
         if row[0] == '全社会用电量指标':
-            urllist = row[2:]
-        
-#print(','.join(urllist))
+            urllist = row[2:] #All data start from Feb. Skip row[0] and row[1]
+
+#print('url num:' + str(len(urllist))) # url num:11
+#print('\n'.join(urllist))
 
 for target_url in urllist:
     page = []
 
     data = urllib.request.urlopen(target_url)
-    datastr = data.read().decode(encoding="utf-8")
+    datastr = data.read().decode(encoding='utf-8')
     soup = BeautifulSoup(datastr, 'lxml')
     table = soup.find(class_ = 'MsoNormalTable')
     tbody = table.tbody.contents
@@ -45,7 +46,7 @@ for target_url in urllist:
             page.append(line)
 
     # output
-    with open(year + "_" + str(month) + ".csv", "w",newline="") as datacsv:
+    with open('data/' + year + '_' + str(month) + '_electricity.csv', 'w', newline='') as datacsv:
         csvwriter = csv.writer(datacsv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for line in page:
             csvwriter.writerow(line)

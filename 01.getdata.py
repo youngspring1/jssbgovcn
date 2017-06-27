@@ -11,7 +11,7 @@ resp = urllib.request.urlopen(url)
 
 target_url = 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
 data = urllib.request.urlopen(target_url)
-datastr = data.read().decode(encoding="utf-8")
+datastr = data.read().decode(encoding='utf-8')
 #print(datastr)
 
 
@@ -32,7 +32,7 @@ for tr in tmplist:
 			if td != '\n' and td.name != 'script':
 				
 				if td.find('a'):
-					row.append(url + td.find('a').get('href').replace(".", "", 1))
+					row.append(url + td.find('a').get('href').replace('.', '', 1))
 				else:
 					row.append(td.string)
 		
@@ -40,7 +40,7 @@ for tr in tmplist:
 
 #print(urllist)
 
-f = open(year + "contents.txt", "w")
+f = open('data/' + year + '_urllist.csv', 'w')
 for line in urllist:
     f.write(','.join(line) + '\n')
 f.close()
