@@ -12,16 +12,16 @@
     <div id="jsmap" style="width: 600px;height:400px;"></div>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('jsmap'));
-        myChart.showLoading();
+        var myMapChart = echarts.init(document.getElementById('jsmap'));
+        myMapChart.showLoading();
 
         $.get('jiangsu.json', function (geoJson) {
 
-            myChart.hideLoading();
+            myMapChart.hideLoading();
 
             echarts.registerMap('jiangsu', geoJson);
 
-            myChart.setOption(option = {
+            myMapChart.setOption(option = {
                 title: {
                     text: '江苏省各市每月用电量 2016年度',
                     subtext: '用电量数据来自江苏省统计局',
