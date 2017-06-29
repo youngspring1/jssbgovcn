@@ -1,0 +1,208 @@
+{
+    "electricity" : [
+        {
+            "month" : [
+                {"name" : "南京市", "value" : 0},
+                {"name" : "无锡市", "value" : 0},
+                {"name" : "徐州市", "value" : 0},
+                {"name" : "常州市", "value" : 0},
+                {"name" : "苏州市", "value" : 0},
+                {"name" : "南通市", "value" : 0},
+                {"name" : "连云港市", "value" : 0},
+                {"name" : "淮安市", "value" : 0},
+                {"name" : "盐城市", "value" : 0},
+                {"name" : "扬州市", "value" : 0},
+                {"name" : "镇江市", "value" : 0},
+                {"name" : "泰州市", "value" : 0},
+                {"name" : "宿迁市", "value" : 0}
+            ]
+        },
+        {
+            "month" : [
+                {"name" : "南京市", "value" : 18.14},
+                {"name" : "无锡市", "value" : 22.51},
+                {"name" : "徐州市", "value" : 15.24},
+                {"name" : "常州市", "value" : 16.55},
+                {"name" : "苏州市", "value" : 56.12},
+                {"name" : "南通市", "value" : 13.48},
+                {"name" : "连云港市", "value" : 5.80},
+                {"name" : "淮安市", "value" : 5.83},
+                {"name" : "盐城市", "value" : 11.57},
+                {"name" : "扬州市", "value" : 8.46},
+                {"name" : "镇江市", "value" : 8.36},
+                {"name" : "泰州市", "value" : 8.25},
+                {"name" : "宿迁市", "value" : 5.04}
+            ]
+        },
+        {
+            "month" : [
+                {"name" : "南京市", "value" : 27.00},
+                {"name" : "无锡市", "value" : 44.65},
+                {"name" : "徐州市", "value" : 21.56},
+                {"name" : "常州市", "value" : 28.45},
+                {"name" : "苏州市", "value" : 95.31},
+                {"name" : "南通市", "value" : 23.91},
+                {"name" : "连云港市", "value" : 8.61},
+                {"name" : "淮安市", "value" : 8.69},
+                {"name" : "盐城市", "value" : 18.83},
+                {"name" : "扬州市", "value" : 13.10},
+                {"name" : "镇江市", "value" : 14.77},
+                {"name" : "泰州市", "value" : 15.13},
+                {"name" : "宿迁市", "value" : 9.46}
+            ]
+        },
+        {
+            "month" : [
+                {"name" : "南京市", "value" : 20.84},
+                {"name" : "无锡市", "value" : 38.92},
+                {"name" : "徐州市", "value" : 20.26},
+                {"name" : "常州市", "value" : 28.29},
+                {"name" : "苏州市", "value" : 87.15},
+                {"name" : "南通市", "value" : 20.87},
+                {"name" : "连云港市", "value" : 7.97},
+                {"name" : "淮安市", "value" : 8.29},
+                {"name" : "盐城市", "value" : 16.08},
+                {"name" : "扬州市", "value" : 12.52},
+                {"name" : "镇江市", "value" : 14.21},
+                {"name" : "泰州市", "value" : 13.83},
+                {"name" : "宿迁市", "value" : 9.33}
+            ]
+        },
+        {
+            "month" : [
+                {"name" : "南京市", "value" : 24.06},
+                {"name" : "无锡市", "value" : 41.99},
+                {"name" : "徐州市", "value" : 21.97},
+                {"name" : "常州市", "value" : 29.15},
+                {"name" : "苏州市", "value" : 91.89},
+                {"name" : "南通市", "value" : 22.05},
+                {"name" : "连云港市", "value" : 9.07},
+                {"name" : "淮安市", "value" : 8.49},
+                {"name" : "盐城市", "value" : 17.46},
+                {"name" : "扬州市", "value" : 13.30},
+                {"name" : "镇江市", "value" : 15.16},
+                {"name" : "泰州市", "value" : 14.39},
+                {"name" : "宿迁市", "value" : 9.93}
+            ]
+        },
+        {
+            "month" : [
+                {"name" : "南京市", "value" : 26.87},
+                {"name" : "无锡市", "value" : 42.10},
+                {"name" : "徐州市", "value" : 22.30},
+                {"name" : "常州市", "value" : 28.69},
+                {"name" : "苏州市", "value" : 94.22},
+                {"name" : "南通市", "value" : 22.16},
+                {"name" : "连云港市", "value" : 9.38},
+                {"name" : "淮安市", "value" : 10.49},
+                {"name" : "盐城市", "value" : 17.55},
+                {"name" : "扬州市", "value" : 13.44},
+                {"name" : "镇江市", "value" : 14.60},
+                {"name" : "泰州市", "value" : 15.16},
+                {"name" : "宿迁市", "value" : 10.06}
+            ]
+        },
+        {
+            "month" : [
+                {"name" : "南京市", "value" : 33.83},
+                {"name" : "无锡市", "value" : 51.22},
+                {"name" : "徐州市", "value" : 25.23},
+                {"name" : "常州市", "value" : 32.92},
+                {"name" : "苏州市", "value" : 114.06},
+                {"name" : "南通市", "value" : 27.34},
+                {"name" : "连云港市", "value" : 11.06},
+                {"name" : "淮安市", "value" : 11.08},
+                {"name" : "盐城市", "value" : 19.51},
+                {"name" : "扬州市", "value" : 16.78},
+                {"name" : "镇江市", "value" : 17.40},
+                {"name" : "泰州市", "value" : 18.08},
+                {"name" : "宿迁市", "value" : 12.43}
+            ]
+        },
+        {
+            "month" : [
+                {"name" : "南京市", "value" : 31.67},
+                {"name" : "无锡市", "value" : 47.98},
+                {"name" : "徐州市", "value" : 23.26},
+                {"name" : "常州市", "value" : 31.34},
+                {"name" : "苏州市", "value" : 110.84},
+                {"name" : "南通市", "value" : 25.71},
+                {"name" : "连云港市", "value" : 9.93},
+                {"name" : "淮安市", "value" : 10.91},
+                {"name" : "盐城市", "value" : 17.08},
+                {"name" : "扬州市", "value" : 15.18},
+                {"name" : "镇江市", "value" : 16.66},
+                {"name" : "泰州市", "value" : 16.93},
+                {"name" : "宿迁市", "value" : 11.30}
+            ]
+        },
+        {
+            "month" : [
+                {"name" : "南京市", "value" : 20.77},
+                {"name" : "无锡市", "value" : 34.85},
+                {"name" : "徐州市", "value" : 16.61},
+                {"name" : "常州市", "value" : 23.82},
+                {"name" : "苏州市", "value" : 85.81},
+                {"name" : "南通市", "value" : 19.36},
+                {"name" : "连云港市", "value" : 7.36},
+                {"name" : "淮安市", "value" : 6.14},
+                {"name" : "盐城市", "value" : 13.37},
+                {"name" : "扬州市", "value" : 9.67},
+                {"name" : "镇江市", "value" : 11.59},
+                {"name" : "泰州市", "value" : 11.77},
+                {"name" : "宿迁市", "value" : 7.78}
+            ]
+        },
+        {
+            "month" : [
+                {"name" : "南京市", "value" : 20.46},
+                {"name" : "无锡市", "value" : 38.06},
+                {"name" : "徐州市", "value" : 17.34},
+                {"name" : "常州市", "value" : 26.39},
+                {"name" : "苏州市", "value" : 88.52},
+                {"name" : "南通市", "value" : 20.31},
+                {"name" : "连云港市", "value" : 7.98},
+                {"name" : "淮安市", "value" : 8.86},
+                {"name" : "盐城市", "value" : 16.07},
+                {"name" : "扬州市", "value" : 11.28},
+                {"name" : "镇江市", "value" : 13.29},
+                {"name" : "泰州市", "value" : 13.16},
+                {"name" : "宿迁市", "value" : 8.74}
+            ]
+        },
+        {
+            "month" : [
+                {"name" : "南京市", "value" : 27.13},
+                {"name" : "无锡市", "value" : 42.68},
+                {"name" : "徐州市", "value" : 21.50},
+                {"name" : "常州市", "value" : 30.39},
+                {"name" : "苏州市", "value" : 96.90},
+                {"name" : "南通市", "value" : 22.98},
+                {"name" : "连云港市", "value" : 10.82},
+                {"name" : "淮安市", "value" : 9.57},
+                {"name" : "盐城市", "value" : 17.26},
+                {"name" : "扬州市", "value" : 13.64},
+                {"name" : "镇江市", "value" : 15.94},
+                {"name" : "泰州市", "value" : 16.53},
+                {"name" : "宿迁市", "value" : 10.37}
+            ]
+        },
+        {
+            "month" : [
+                {"name" : "南京市", "value" : 30.89},
+                {"name" : "无锡市", "value" : 47.03},
+                {"name" : "徐州市", "value" : 22.57},
+                {"name" : "常州市", "value" : 30.65},
+                {"name" : "苏州市", "value" : 104.06},
+                {"name" : "南通市", "value" : 24.62},
+                {"name" : "连云港市", "value" : 11.95},
+                {"name" : "淮安市", "value" : 9.35},
+                {"name" : "盐城市", "value" : 17.85},
+                {"name" : "扬州市", "value" : 14.78},
+                {"name" : "镇江市", "value" : 16.22},
+                {"name" : "泰州市", "value" : 17.41},
+                {"name" : "宿迁市", "value" : 10.73}
+            ]
+        }
+    ]
+}

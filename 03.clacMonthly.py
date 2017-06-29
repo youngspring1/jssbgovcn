@@ -36,18 +36,6 @@ def main():
                 city_data[cityrow][month-1] = matrix[row][1]
                 cityrow = cityrow + 1
 
-    # output cities
-    with open('data/' + year + '_all_electricity.csv', 'w', newline='') as datacsv:
-        csvwriter = csv.writer(datacsv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        csvwriter.writerow(['城市/月份'] + month_name)
-        for cityrow in range(len(city_name)):
-            temprow = []
-            temprow.append(city_name[cityrow])
-            for month in range(len(month_name)):
-                temprow.append(city_data[cityrow][month])
-            csvwriter.writerow(temprow)
-
-
     # output industry/civil
     with open('data/' + year + '_all_electricity_quota.csv', 'w', newline='') as datacsv:
         csvwriter = csv.writer(datacsv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
@@ -59,6 +47,49 @@ def main():
                 temprow.append(quota_data[quotarow][month])
             csvwriter.writerow(temprow)
 
+    # output cities
+    with open('data/' + year + '_all_electricity.csv', 'w', newline='') as datacsv:
+        csvwriter = csv.writer(datacsv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csvwriter.writerow(['城市/月份'] + month_name)
+        for cityrow in range(len(city_name)):
+            temprow = []
+            temprow.append(city_name[cityrow])
+            for month in range(len(month_name)):
+                temprow.append(city_data[cityrow][month])
+            csvwriter.writerow(temprow)
+
+    # output json
+    f = open('data/' + year + '_all_electricity.json', 'w')
+    f.write(indentation(0) + '{\n')
+    f.write(indentation(1) + '"electricity" : [\n')
+
+    for month in range(len(month_name)):
+        #f.write(indentation(2) + '{\n')
+
+        #f.write(indentation(3) + '"month" : ' + str(month+1) + ',\n')
+        #f.write(indentation(3) + '{"' + month_name[month] + '" : [\n')
+        f.write(indentation(2) + '{\n')
+        f.write(indentation(3) + '"month" : [\n')
+
+        for cityrow in range(len(city_name)):
+            f.write(indentation(4) + '{')
+            f.write(indentation(0) + '"name" : "' + city_name[cityrow] + '", ')
+            f.write(indentation(0) + '"value" : ' + str(city_data[cityrow][month]) + '')
+            if cityrow == (len(city_name)-1):
+                f.write(indentation(0) + '}\n')
+            else:
+                f.write(indentation(0) + '},\n')
+
+        f.write(indentation(3) + ']\n')
+
+        if month  == (len(month_name)-1):
+            f.write(indentation(2) + '}\n')
+        else:
+            f.write(indentation(2) + '},\n')
+
+    f.write(indentation(1) + ']\n')
+    f.write(indentation(0) + '}\n')
+    f.close()
 
 # read CSV file, get sentences
 def read_csv(filename):
@@ -68,6 +99,11 @@ def read_csv(filename):
         for row in spamreader:
             matrix.append(row)
     return matrix
+
+def indentation(number):
+    space = '    '
+    return '' + space * number
+
 
 if __name__ == '__main__':
     main()
