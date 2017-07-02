@@ -41,7 +41,7 @@ def main():
         sum = 0.0
         for month in range(len(month_name)):
             sum += float(city_data[cityrow][month])
-        city_data[cityrow][0] = str(sum / 11)
+        city_data[cityrow][0] = str('%.2f' % (sum / 11))
 
     # output industry/civil
     with open('data/' + year + '_all_electricity_quota.csv', 'w', newline='') as datacsv:
