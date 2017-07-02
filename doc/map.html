@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts Map</title>
+    <script src="jquery-3.2.1.js"></script>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.js"></script>
+</head>
+<body onload="change(1)">
+    <div>
+      <select id="mselect" onchange="change(this.value)">
+        <option value="0">2016年1月</option>
+        <option value="1" selected="selected">2016年2月</option>
+        <option value="2">2016年3月</option>
+        <option value="3">2016年4月</option>
+        <option value="4">2016年5月</option>
+        <option value="5">2016年6月</option>
+        <option value="6">2016年7月</option>
+        <option value="7">2016年8月</option>
+        <option value="8">2016年9月</option>
+        <option value="9">2016年10月</option>
+        <option value="10">2016年11月</option>
+        <option value="11">2016年12月</option>
+      </select>
+    </div>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="jsmap" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myMapChart = echarts.init(document.getElementById('jsmap'));
+        //myMapChart.showLoading();
+
+        function change(mon) {
+            $.get('jiangsu.json', function (geoJson) {
+
+                myMapChart.hideLoading();
+
+                echarts.registerMap('jiangsu', geoJson);
+
+                myMapChart.setOption(option = {
+                    title: {
+                        text: '江苏省各市每月用电量 2016年度',
+                        subtext: '江苏省统计局',
+                        sublink: 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{b}<br/>{c} (亿千瓦小时)'
+                    },
+                    toolbox: {
+                        show: false,//true,
+                        orient: 'vertical',
+                        left: 'right',
+                        top: 'center',
+                        feature: {
+                            dataView: {readOnly: false},
+                            restore: {},
+                            saveAsImage: {}
+                        }
+                    },
+                    visualMap: {
+                        min: 0,
+                        max: 120,
+                        text:['High','Low'],
+                        realtime: false,
+                        calculable: true,
+                        inRange: {
+                            color: ['lightskyblue','yellow', 'orangered']
+                        }
+                    },
+                    series: [
+                        {
+                            name: '江苏省各市每月用电量',
+                            type: 'map',
+                            mapType: 'jiangsu', // 自定义扩展图表类型
+                            itemStyle:{
+                                normal:{label:{show:true}},
+                                emphasis:{label:{show:true}}
+                            },
+                            // 异步数据加载:
+                            data: [],
+
+                            // before hardcode here:
+                            // data:[
+                            //     {name: '南京市', value: 18.14},
+                            //     {name: '无锡市', value: 22.51},
+                            //     {name: '徐州市', value: 15.24},
+                            //     {name: '常州市', value: 16.55},
+                            //     {name: '苏州市', value: 56.12},
+                            //     {name: '南通市', value: 13.48},
+                            //     {name: '连云港市', value: 5.80},
+                            //     {name: '淮安市', value: 5.83},
+                            //     {name: '盐城市', value: 11.57},
+                            //     {name: '扬州市', value: 8.46},
+                            //     {name: '镇江市', value: 8.36},
+                            //     {name: '泰州市', value: 8.25},
+                            //     {name: '宿迁市', value: 5.04}
+                            // ],
+                            // 自定义名称映射
+                            nameMap: {
+                                //map data: display name
+                                '南京市': '南京市',
+                                '无锡市': '无锡市',
+                                '徐州市': '徐州市',
+                                '常州市': '常州市',
+                                '苏州市': '苏州市',
+                                '南通市': '南通市',
+                                '连云港市': '连云港市',
+                                '淮安市': '淮安市',
+                                '盐城市': '盐城市',
+                                '扬州市': '扬州市',
+                                '镇江市': '镇江市',
+                                '泰州市': '泰州市',
+                                '宿迁市': '宿迁市'
+                            }
+                        }
+                    ]
+                });
+                // var mon = document.getElementById('mselect').value;
+                // 异步加载数据
+                $.get('../data/2016_all_electricity.json').done(function (data) {
+                    // console.log('in get json')
+                    // console.log(data.electricity)
+                    // console.log('electricity[1]:' + data.electricity[1].month[1])
+                    // console.log('electricity[1].month[1].name:' + data.electricity[1].month[1].name)
+                    // console.log('electricity[1].month[1].value:' + data.electricity[1].month[1].value)
+                    // console.log('month = ' + mon);
+                    // console.log(data.electricity[mon].month);
+
+                    // 填入数据
+                    myMapChart.setOption({
+                        series: [{
+                            name: '江苏省各市每月用电量',
+                            type: 'map',
+                            mapType: 'jiangsu', // 自定义扩展图表类型
+                            itemStyle:{
+                                normal:{label:{show:true}},
+                                emphasis:{label:{show:true}}
+                            },
+                            data: data.electricity[mon].month,
+                            nameMap: {
+                                //map data: display name
+                                '南京市': '南京市',
+                                '无锡市': '无锡市',
+                                '徐州市': '徐州市',
+                                '常州市': '常州市',
+                                '苏州市': '苏州市',
+                                '南通市': '南通市',
+                                '连云港市': '连云港市',
+                                '淮安市': '淮安市',
+                                '盐城市': '盐城市',
+                                '扬州市': '扬州市',
+                                '镇江市': '镇江市',
+                                '泰州市': '泰州市',
+                                '宿迁市': '宿迁市'
+                            }
+                        }]
+                    });
+                });
+
+
+            });
+        }
+    </script>
+</body>
+</html>
