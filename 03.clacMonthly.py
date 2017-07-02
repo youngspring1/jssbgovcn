@@ -69,7 +69,7 @@ def main():
     f = open('data/' + year + '_timeline.json', 'w')
     f.write(indentation(0) + '{\n')
     f.write(indentation(1) + '"monthlydata" : [\n')
-    for month in range(1, len(month_name)):
+    for month in range(len(month_name)):
         temprow = []
         for cityrow in range(len(city_name)):
             temprow.append(str(city_data[cityrow][month]))
