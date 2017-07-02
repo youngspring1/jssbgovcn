@@ -36,6 +36,13 @@ def main():
                 city_data[cityrow][month-1] = matrix[row][1]
                 cityrow = cityrow + 1
 
+    # make fake data for Jan
+    for cityrow in range(len(city_name)):
+        sum = 0.0
+        for month in range(len(month_name)):
+            sum += float(city_data[cityrow][month])
+        city_data[cityrow][0] = str(sum / 11)
+
     # output industry/civil
     with open('data/' + year + '_all_electricity_quota.csv', 'w', newline='') as datacsv:
         csvwriter = csv.writer(datacsv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
@@ -58,7 +65,24 @@ def main():
                 temprow.append(city_data[cityrow][month])
             csvwriter.writerow(temprow)
 
-    # output json
+    # output timeline json
+    f = open('data/' + year + '_timeline.json', 'w')
+    f.write(indentation(0) + '{\n')
+    f.write(indentation(1) + '"monthlydata" : [\n')
+    for month in range(1, len(month_name)):
+        temprow = []
+        for cityrow in range(len(city_name)):
+            temprow.append(str(city_data[cityrow][month]))
+        f.write(indentation(2) + '[' + ','.join(temprow) + ']')
+        if month != len(month_name) - 1 :
+            f.write(',\n')
+        else:
+            f.write('\n')
+    f.write(indentation(1) + ']\n')
+    f.write(indentation(0) + '}\n')
+    f.close()
+
+    # output all json
     f = open('data/' + year + '_all_electricity.json', 'w')
     f.write(indentation(0) + '{\n')
     f.write(indentation(1) + '"electricity" : [\n')

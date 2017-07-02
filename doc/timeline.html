@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts Map</title>
+    <script src="jquery-3.2.1.js"></script>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.js"></script>
+    <script src="timelineOption.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="timelinediv" style="width: 1200px; height: 600px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom,初始化echarts实例
+        var timelineChart = echarts.init(document.getElementById('timelinediv'));
+        // timelineChart.showLoading();
+
+        var option = {
+            baseOption: {
+                timeline: {
+                    axisType: 'category',
+                    show: true,
+                    autoPlay: true,
+                    playInterval: 1500,
+                    controlPosition: 'right',
+                    data: ['2016-01', '2016-02', '2016-03', '2016-04', '2016-05', '2016-06', '2016-07', '2016-08', '2016-09', '2016-10', '2016-11', '2016-12']
+                },
+                grid: {
+                    containLabel: true
+                },
+                xAxis: {  
+                        type: 'category',
+                        name: '地级市',
+                        data: ['南京市', '无锡市', '徐州市', '常州市', '苏州市', '南通市', '连云港市', '淮安市', '盐城市', '扬州市', '镇江市', '泰州市', '宿迁市']
+                },  
+                yAxis: { type: 'value', name: '(亿千瓦小时)' },
+                series: [
+                    {
+                        type: 'bar',
+                    }
+                ],
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}<br/>{c} (亿千瓦小时)'
+                },
+                title: {
+                    text: '2016年度江苏省各市每月用电量',
+                    subtext: '江苏省统计局',
+                    sublink: 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
+                }
+            },
+            options:[]
+        };
+        // set option before read json data
+        timelineChart.setOption(option);
+
+        $.get('../data/2016_timeline.json').done(function (data) {
+            // console.log(data.monthlydata);
+            // read json data
+            var optiondata = {
+                options:[
+                    {
+                        series: [
+                            {
+                                data : data.monthlydata[0]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.monthlydata[1]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.monthlydata[2]
+                            }
+                        ]
+                    },
+
+                    {
+                        series: [
+                            {
+                                data : data.monthlydata[3]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.monthlydata[4]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.monthlydata[5]
+                            }
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.monthlydata[6]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.monthlydata[7]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.monthlydata[8]
+                            }
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.monthlydata[9]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.monthlydata[10]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.monthlydata[11]
+                            }
+                        ]
+                    }
+                ]
+            };
+            //set data
+            timelineChart.setOption(optiondata);
+        });
+    </script>
+</body>
+</html>
