@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts Map</title>
+    <script src="lib/jquery-3.2.1.js"></script>
+    <!-- 引入 echarts.js -->
+    <script src="lib/echarts.js"></script>
+    <!-- 引入时间控件 timelineOption.js -->
+    <script src="lib/timelineOption.js"></script>
+    <!-- 引入主题 dark.js -->
+    <script src="theme/dark.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="timelinediv" style="width: 800px; height: 500px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom,初始化echarts实例
+        var timelineChart = echarts.init(document.getElementById('timelinediv'), 'dark');
+        // timelineChart.showLoading();
+
+        var option = {
+            baseOption: {
+                timeline: {
+                    axisType: 'category',
+                    show: true,
+                    autoPlay: true,
+                    playInterval: 1500,
+                    controlPosition: 'right',
+                    data: ['2016-01', '2016-02', '2016-03', '2016-04', '2016-05', '2016-06', '2016-07', '2016-08', '2016-09', '2016-10', '2016-11', '2016-12']
+                },
+                grid: {
+                    containLabel: true
+                },
+                xAxis: {  
+                        type: 'category',
+                        // name: '地级市',
+                        data: ['南京', '无锡', '徐州', '常州', '苏州', '南通', '连云港', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁']
+                },  
+                yAxis: { type: 'value', name: '亿元'},
+                series: [
+                    {
+                        type: 'bar',
+                    }
+                ],
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}<br/>{c} (亿元)'
+                },
+                legend: {
+                    x: 'right',
+                    data: ['存款', '贷款'],
+                    selected: {
+                        'GDP': false, '金融': false, '房地产': false
+                    }
+                },
+                title: {
+                    // text: '江苏省各市存贷款',
+                    // subtext: '江苏省统计局',
+                    // sublink: 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
+                }
+            },
+            //options:[]
+            options:[
+                    {
+                        series: [
+                            {
+                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+                            }
+                        ]
+                    },
+
+                    {
+                        series: [
+                            {
+                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+                            }
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+                            }
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+                            },
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+                            }
+                        ]
+                    }
+                ]
+        };
+        // set option before read json data
+        timelineChart.setOption(option);
+
+        // $.get('../data/2016_depositloan.json').done(function (data) {
+        //     // console.log(data.monthlydata);
+        //     // read json data
+        //     var optiondata = {
+        //         options:[
+        //             {
+        //                 series: [
+        //                     {
+        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+        //                     },
+        //                 ]
+        //             },
+        //             {
+        //                 series: [
+        //                     {
+        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+        //                     },
+        //                 ]
+        //             },
+        //             {
+        //                 series: [
+        //                     {
+        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+        //                     }
+        //                 ]
+        //             },
+
+        //             {
+        //                 series: [
+        //                     {
+        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+        //                     },
+        //                 ]
+        //             },
+        //             {
+        //                 series: [
+        //                     {
+        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+        //                     },
+        //                 ]
+        //             },
+        //             {
+        //                 series: [
+        //                     {
+        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+        //                     }
+        //                 ]
+        //             },
+        //             {
+        //                 series: [
+        //                     {
+        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+        //                     },
+        //                 ]
+        //             },
+        //             {
+        //                 series: [
+        //                     {
+        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+        //                     },
+        //                 ]
+        //             },
+        //             {
+        //                 series: [
+        //                     {
+        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+        //                     }
+        //                 ]
+        //             },
+        //             {
+        //                 series: [
+        //                     {
+        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+        //                     },
+        //                 ]
+        //             },
+        //             {
+        //                 series: [
+        //                     {
+        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+        //                     },
+        //                 ]
+        //             },
+        //             {
+        //                 series: [
+        //                     {
+        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
+        //                     }
+        //                 ]
+        //             }
+        //         ]
+        //     };
+        //     //set data
+        //     timelineChart.setOption(optiondata);
+        // });
+        timelineChart.setOption(optiondata);
+    </script>
+</body>
+</html>

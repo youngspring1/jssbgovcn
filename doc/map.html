@@ -12,7 +12,7 @@
 <body onload="change(1)">
 
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="jsmap" style="width: 600px;height:500px;"></div>
+    <div id="jsmap" style="width: 500px;height:600px;"></div>
     <div>
       <select id="mselect" onchange="change(this.value)">
         <option value="0">1月</option>
@@ -44,8 +44,8 @@
                 myMapChart.setOption(option = {
                     title: {
                         text: '江苏省各市每月用电量',
-                        subtext: '江苏省统计局',
-                        sublink: 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
+                        // subtext: '江苏省统计局',
+                        // sublink: 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
                     },
                     tooltip: {
                         trigger: 'item',
@@ -70,6 +70,7 @@
                         calculable: true,
                         inRange: {
                             color: ['lightskyblue','yellow', 'orangered']
+                            //color: ['#ffde33', '#ff9933', '#cc0033', '#660099']
                         }
                     },
                     series: [
@@ -83,7 +84,6 @@
                             },
                             // 异步数据加载:
                             data: [],
-
                             // before hardcode here:
                             // data:[
                             //     {name: '南京市', value: 18.14},
@@ -100,6 +100,7 @@
                             //     {name: '泰州市', value: 8.25},
                             //     {name: '宿迁市', value: 5.04}
                             // ],
+
                             // 自定义名称映射
                             nameMap: {
                                 //map data: display name

@@ -6,7 +6,10 @@
     <script src="lib/jquery-3.2.1.js"></script>
     <!-- 引入 echarts.js -->
     <script src="lib/echarts.js"></script>
+    <!-- 引入时间控件 timelineOption.js -->
     <script src="lib/timelineOption.js"></script>
+    <!-- 引入主题 dark.js -->
+    <script src="theme/dark.js"></script>
 </head>
 <body>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
@@ -34,7 +37,7 @@
                         name: '地级市',
                         data: ['南京市', '无锡市', '徐州市', '常州市', '苏州市', '南通市', '连云港市', '淮安市', '盐城市', '扬州市', '镇江市', '泰州市', '宿迁市']
                 },  
-                yAxis: { type: 'value', name: '(亿千瓦小时)' , max: 120},
+                yAxis: { type: 'value', name: '亿千瓦小时' , max: 120},
                 series: [
                     {
                         type: 'bar',
@@ -45,9 +48,9 @@
                     formatter: '{b}<br/>{c} (亿千瓦小时)'
                 },
                 title: {
-                    text: '2016年度江苏省各市每月用电量',
-                    subtext: '江苏省统计局',
-                    sublink: 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
+                    // text: '2016年度江苏省各市每月用电量',
+                    // subtext: '江苏省统计局',
+                    // sublink: 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
                 }
             },
             options:[]
