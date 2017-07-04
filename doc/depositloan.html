@@ -40,7 +40,12 @@
                 yAxis: { type: 'value', name: '亿元'},
                 series: [
                     {
-                        type: 'bar',
+                        name: '存款',
+                        type: 'bar'
+                    },
+                    {
+                        name: '贷款',
+                        type: 'bar'
                     }
                 ],
                 tooltip: {
@@ -49,10 +54,10 @@
                 },
                 legend: {
                     x: 'right',
-                    data: ['存款', '贷款'],
-                    selected: {
-                        'GDP': false, '金融': false, '房地产': false
-                    }
+                    data: ['存款', '贷款']
+                    // selected: {
+                    //     'GDP': true, '金融': false, '房地产': false
+                    // }
                 },
                 title: {
                     // text: '江苏省各市存贷款',
@@ -60,194 +65,146 @@
                     // sublink: 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
                 }
             },
-            //options:[]
-            options:[
-                    {
-                        series: [
-                            {
-                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-                            },
-                        ]
-                    },
-                    {
-                        series: [
-                            {
-                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-                            },
-                        ]
-                    },
-                    {
-                        series: [
-                            {
-                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-                            }
-                        ]
-                    },
-
-                    {
-                        series: [
-                            {
-                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-                            },
-                        ]
-                    },
-                    {
-                        series: [
-                            {
-                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-                            },
-                        ]
-                    },
-                    {
-                        series: [
-                            {
-                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-                            }
-                        ]
-                    },
-                    {
-                        series: [
-                            {
-                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-                            },
-                        ]
-                    },
-                    {
-                        series: [
-                            {
-                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-                            },
-                        ]
-                    },
-                    {
-                        series: [
-                            {
-                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-                            }
-                        ]
-                    },
-                    {
-                        series: [
-                            {
-                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-                            },
-                        ]
-                    },
-                    {
-                        series: [
-                            {
-                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-                            },
-                        ]
-                    },
-                    {
-                        series: [
-                            {
-                                data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-                            }
-                        ]
-                    }
-                ]
+            options:[]
         };
         // set option before read json data
         timelineChart.setOption(option);
 
-        // $.get('../data/2016_depositloan.json').done(function (data) {
-        //     // console.log(data.monthlydata);
-        //     // read json data
-        //     var optiondata = {
-        //         options:[
-        //             {
-        //                 series: [
-        //                     {
-        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-        //                     },
-        //                 ]
-        //             },
-        //             {
-        //                 series: [
-        //                     {
-        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-        //                     },
-        //                 ]
-        //             },
-        //             {
-        //                 series: [
-        //                     {
-        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-        //                     }
-        //                 ]
-        //             },
+        $.get('../data/2016_depositloan.json').done(function (data) {
+            // console.log(data.monthlydata);
+            // read json data
+            var optiondata = {
+                options:[
+                    {
+                        series: [
+                            {
+                                data : data.depositloan[0].deposit
+                            },
+                            {
+                                data : data.depositloan[0].loan
+                            }
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.depositloan[1].deposit
+                            },
+                            {
+                                data : data.depositloan[1].loan
+                            }
 
-        //             {
-        //                 series: [
-        //                     {
-        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-        //                     },
-        //                 ]
-        //             },
-        //             {
-        //                 series: [
-        //                     {
-        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-        //                     },
-        //                 ]
-        //             },
-        //             {
-        //                 series: [
-        //                     {
-        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-        //                     }
-        //                 ]
-        //             },
-        //             {
-        //                 series: [
-        //                     {
-        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-        //                     },
-        //                 ]
-        //             },
-        //             {
-        //                 series: [
-        //                     {
-        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-        //                     },
-        //                 ]
-        //             },
-        //             {
-        //                 series: [
-        //                     {
-        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-        //                     }
-        //                 ]
-        //             },
-        //             {
-        //                 series: [
-        //                     {
-        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-        //                     },
-        //                 ]
-        //             },
-        //             {
-        //                 series: [
-        //                     {
-        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-        //                     },
-        //                 ]
-        //             },
-        //             {
-        //                 series: [
-        //                     {
-        //                         data : [100, 150,123,222,321,222,100, 150,123,222,321,222,122]
-        //                     }
-        //                 ]
-        //             }
-        //         ]
-        //     };
-        //     //set data
-        //     timelineChart.setOption(optiondata);
-        // });
-        timelineChart.setOption(optiondata);
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.depositloan[2].deposit
+                            },
+                            {
+                                data : data.depositloan[2].loan
+                            }
+
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.depositloan[3].deposit
+                            },
+                            {
+                                data : data.depositloan[3].loan
+                            }
+
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.depositloan[4].deposit
+                            },
+                            {
+                                data : data.depositloan[4].loan
+                            }
+
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.depositloan[5].deposit
+                            },
+                            {
+                                data : data.depositloan[5].loan
+                            }
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.depositloan[6].deposit
+                            },
+                            {
+                                data : data.depositloan[6].loan
+                            }
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.depositloan[7].deposit
+                            },
+                            {
+                                data : data.depositloan[7].loan
+                            }
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.depositloan[8].deposit
+                            },
+                            {
+                                data : data.depositloan[8].loan
+                            }
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.depositloan[9].deposit
+                            },
+                            {
+                                data : data.depositloan[9].loan
+                            }
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.depositloan[10].deposit
+                            },
+                            {
+                                data : data.depositloan[10].loan
+                            }
+                        ]
+                    },
+                    {
+                        series: [
+                            {
+                                data : data.depositloan[11].deposit
+                            },
+                            {
+                                data : data.depositloan[11].loan
+                            }
+                        ]
+                    }
+                ]
+            };
+            //set data
+            timelineChart.setOption(optiondata);
+        });
+        // timelineChart.setOption(optiondata);
     </script>
 </body>
 </html>

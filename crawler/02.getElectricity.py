@@ -9,8 +9,8 @@ import csv
 year = '2016'
 month = 2 #All data start from Feb.
 urllist = []
-# read csv,get url
 
+# read csv,get url
 with open('../data/' + year + '_urllist.csv', newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
     for row in spamreader:
