@@ -19,7 +19,7 @@ def main():
 
     # read 11 csv
     for month in range(2, 13):
-        filename = 'data/' + year + '_' + str(month) + '_electricity.csv'
+        filename = '../data/' + year + '_' + str(month) + '_electricity.csv'
         matrix = read_csv(filename)
         #轻工业
         quota_data[0][month-1] = matrix[4][1]
@@ -44,7 +44,7 @@ def main():
         city_data[cityrow][0] = str('%.2f' % (sum / 11))
 
     # output industry/civil
-    with open('data/' + year + '_all_electricity_quota.csv', 'w', newline='') as datacsv:
+    with open('../data/' + year + '_all_electricity_quota.csv', 'w', newline='') as datacsv:
         csvwriter = csv.writer(datacsv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         csvwriter.writerow(['分类/月份'] + month_name)
         for quotarow in range(len(quota_name)):
@@ -55,7 +55,7 @@ def main():
             csvwriter.writerow(temprow)
 
     # output cities
-    with open('data/' + year + '_all_electricity.csv', 'w', newline='') as datacsv:
+    with open('../data/' + year + '_all_electricity.csv', 'w', newline='') as datacsv:
         csvwriter = csv.writer(datacsv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         csvwriter.writerow(['城市/月份'] + month_name)
         for cityrow in range(len(city_name)):
@@ -66,7 +66,7 @@ def main():
             csvwriter.writerow(temprow)
 
     # output timeline json
-    f = open('data/' + year + '_timeline.json', 'w')
+    f = open('../data/' + year + '_timeline.json', 'w')
     f.write(indentation(0) + '{\n')
     f.write(indentation(1) + '"monthlydata" : [\n')
     for month in range(len(month_name)):
@@ -83,7 +83,7 @@ def main():
     f.close()
 
     # output all json
-    f = open('data/' + year + '_all_electricity.json', 'w')
+    f = open('../data/' + year + '_all_electricity.json', 'w')
     f.write(indentation(0) + '{\n')
     f.write(indentation(1) + '"electricity" : [\n')
 

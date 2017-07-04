@@ -6,10 +6,7 @@ import urllib.request
 import gzip
 
 year = '2016'
-url = 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/' + year
-resp = urllib.request.urlopen(url)
-
-target_url = 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
+target_url = 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/' + year
 data = urllib.request.urlopen(target_url)
 datastr = data.read().decode(encoding='utf-8')
 #print(datastr)
@@ -40,7 +37,7 @@ for tr in tmplist:
 
 #print(urllist)
 
-f = open('data/' + year + '_urllist.csv', 'w')
+f = open('../data/' + year + '_urllist.csv', 'w')
 for line in urllist:
     f.write(','.join(line) + '\n')
 f.close()

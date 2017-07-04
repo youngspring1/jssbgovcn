@@ -11,7 +11,7 @@ month = 2 #All data start from Feb.
 urllist = []
 # read csv,get url
 
-with open('data/' + year + '_urllist.csv', newline='') as csvfile:
+with open('../data/' + year + '_urllist.csv', newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
     for row in spamreader:
         if row[0] == '全社会用电量指标':
@@ -46,7 +46,7 @@ for target_url in urllist:
             page.append(line)
 
     # output
-    with open('data/' + year + '_' + str(month) + '_electricity.csv', 'w', newline='') as datacsv:
+    with open('../data/' + year + '_' + str(month) + '_electricity.csv', 'w', newline='') as datacsv:
         csvwriter = csv.writer(datacsv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for line in page:
             csvwriter.writerow(line)

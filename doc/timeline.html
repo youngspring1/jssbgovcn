@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <title>ECharts Map</title>
-    <script src="jquery-3.2.1.js"></script>
+    <script src="lib/jquery-3.2.1.js"></script>
     <!-- 引入 echarts.js -->
-    <script src="echarts.js"></script>
-    <script src="timelineOption.js"></script>
+    <script src="lib/echarts.js"></script>
+    <script src="lib/timelineOption.js"></script>
 </head>
 <body>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
@@ -34,7 +34,7 @@
                         name: '地级市',
                         data: ['南京市', '无锡市', '徐州市', '常州市', '苏州市', '南通市', '连云港市', '淮安市', '盐城市', '扬州市', '镇江市', '泰州市', '宿迁市']
                 },  
-                yAxis: { type: 'value', name: '(亿千瓦小时)' },
+                yAxis: { type: 'value', name: '(亿千瓦小时)' , max: 120},
                 series: [
                     {
                         type: 'bar',
