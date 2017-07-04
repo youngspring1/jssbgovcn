@@ -16,7 +16,7 @@
     <div id="timelinediv" style="width: 1200px; height: 600px;"></div>
     <script type="text/javascript">
         // 基于准备好的dom,初始化echarts实例
-        var timelineChart = echarts.init(document.getElementById('timelinediv'));
+        var timelineChart = echarts.init(document.getElementById('timelinediv'), 'dark');
         // timelineChart.showLoading();
 
         var option = {
@@ -58,7 +58,7 @@
         // set option before read json data
         timelineChart.setOption(option);
 
-        $.get('../data/2016_timeline.json').done(function (data) {
+        $.get('../data/2016_electricity.json').done(function (data) {
             // console.log(data.monthlydata);
             // read json data
             var optiondata = {

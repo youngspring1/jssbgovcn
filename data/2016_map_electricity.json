@@ -2,19 +2,19 @@
     "electricity" : [
         {
             "month" : [
-                {"name" : "南京市", "value" : 25.61},
-                {"name" : "无锡市", "value" : 41.09},
-                {"name" : "徐州市", "value" : 20.71},
-                {"name" : "常州市", "value" : 27.88},
-                {"name" : "苏州市", "value" : 93.17},
-                {"name" : "南通市", "value" : 22.07},
-                {"name" : "连云港市", "value" : 9.08},
-                {"name" : "淮安市", "value" : 8.88},
-                {"name" : "盐城市", "value" : 16.60},
-                {"name" : "扬州市", "value" : 12.92},
-                {"name" : "镇江市", "value" : 14.38},
-                {"name" : "泰州市", "value" : 14.60},
-                {"name" : "宿迁市", "value" : 9.56}
+                {"name" : "南京市", "value" : 30.89},
+                {"name" : "无锡市", "value" : 47.03},
+                {"name" : "徐州市", "value" : 22.57},
+                {"name" : "常州市", "value" : 30.65},
+                {"name" : "苏州市", "value" : 104.06},
+                {"name" : "南通市", "value" : 24.62},
+                {"name" : "连云港市", "value" : 11.95},
+                {"name" : "淮安市", "value" : 9.35},
+                {"name" : "盐城市", "value" : 17.85},
+                {"name" : "扬州市", "value" : 14.78},
+                {"name" : "镇江市", "value" : 16.22},
+                {"name" : "泰州市", "value" : 17.41},
+                {"name" : "宿迁市", "value" : 10.73}
             ]
         },
         {
