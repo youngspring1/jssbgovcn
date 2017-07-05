@@ -1,0 +1,253 @@
+﻿/* 
+ * 経営コックピット World Area Panel CSS
+ */
+
+/*Map*/
+.map_world{
+    opacity:1.0;
+    position:absolute;
+    top:32px;
+    left:-15px;
+    width:903px;
+    height:768px;
+    overflow:hidden;
+    background-repeat:no-repeat;
+    background-position-x:0px;
+    background-position-y:0px;
+    background-size:903px;
+    background-image: url(../img/worldmap.png);
+}
+
+.map_Japan{
+    opacity:0.0;
+    position:absolute;
+    top:166px;
+    left:374px;
+    width:94px;
+    height:95px;
+    background-image: url(../img/japan_hover.png);
+}
+
+.map_Americas{
+    opacity:0.0;
+    position:absolute;
+    top:33px;
+    left:512px;
+    width:391px;
+    height:471px;
+    background-image: url(../img/americas_hover.png);
+}
+
+.map_Oceania{
+    opacity:0.0;
+    position:absolute;
+    top:322px;
+    left:349px;
+    width:187px;
+    height:187px;
+    background-image: url(../img/oceania_hover.png);
+}
+
+.map_Asia{
+    opacity:0.0;
+    position:absolute;
+    top:163px;
+    left:249px;
+    width:252px;
+    height:231px;
+    background-image: url(../img/asia_hover.png);
+}
+
+.map_EMEIA{
+    opacity:0.0;
+    position:absolute;
+    top:32px;
+    left:0;
+    width:559px;
+    height:401px;
+    background-image: url(../img/emeia_hover.png);
+}
+
+/*Fujitsu Group*/
+.fujitsu_group_order{
+    opacity:1.0;
+    margin-top:9px;
+    font-size:14px;
+    font-weight:bold;
+    line-height:18px;
+    color:white;
+    cursor:default;
+}
+
+.fjgroup_Revenue{
+    width:81px;
+    font-weight:bold;
+    text-align:right;
+    padding-right:4px;
+}
+
+.fjgroup_GrossMargin{
+    width:81px;
+    font-weight:bold;
+    text-align:right;
+    padding-right:4px;
+}
+
+.fjgroup_OPPLRevenue {
+    width:104px;
+    font-weight:bold;
+    text-align:right;
+    padding-right:4px;
+}
+
+.FujitsuGroup_Sum{
+    height:16px;
+    line-height:16px;
+    margin:2px 0px 2px 1px;
+    padding-bottom:1px;
+    padding-right:2px;
+    font-weight:bold;
+}
+
+.fjgroup_font{
+    font-size:16px;
+    width:68px;
+    text-align:right;
+}
+
+/*Panel*/
+.pnl_font{
+    font-size:13px;
+    width:52px;
+    text-align:right;
+}
+
+.pnl_padding{
+    width:71px;
+    text-align:right;
+    padding-right:1px;
+}
+
+.pnl_area{
+    position:absolute;
+    width:163px;
+    height:163px;
+    border:2px solid rgba(255,255,255,0.2);
+    padding:4px 4px;
+    line-height:18px;
+    font-size:16px;
+    font-weight:bold;
+    color:#B3B3B3;
+    cursor:default;
+}
+
+.pnl_area_hover{
+    opacity:0.0;
+    position:absolute;
+    width:163px;
+    height:163px;
+    border:2px solid transparent;
+    padding:4px 4px;
+    line-height:18px;
+    font-size:16px;
+    font-weight:bold;
+    color:white;
+    cursor:default;
+ }
+
+.pnl_area_Japan{
+    visibility:hidden;
+    position:absolute;
+    top:172px;
+    left:380px;
+    width:64px;
+    height:70px;
+    border:2px solid rgba(255,255,255,0.2);
+    padding:4px 7px;
+    line-height:18px;
+    font-size:16px;
+    font-weight:bold;
+    color:#B3B3B3;
+    cursor:default;
+}
+
+.pnl_area_Japan_hover {
+    visibility:hidden;
+    opacity:0.0;
+    position:absolute;
+    top:172px;
+    left:380px;
+    width:64px;
+    height:70px;
+    border:2px solid transparent;
+    padding:4px 7px;
+    line-height:18px;
+    font-size:16px;
+    font-weight:bold;
+    color:white;
+    cursor:default;
+}
+
+.pnl_area_img{
+    position:absolute;
+    top:6px;
+}
+
+.pnl_order{
+    opacity:1.0;
+    margin-top:9px;
+    font-size:12px;
+    font-weight:bold;
+    line-height:18px;
+    color:white;
+    cursor:default;
+}
+
+.pnl_Revenue_Rate{
+    height:15px;
+    line-height:14px;
+    margin:2px 0px 2px 1px;
+    padding-bottom:1px;
+    padding-right:2px;
+    background-color:rgba(255,255,255,0.83);
+    font-weight:bold;
+}
+
+.pnl_Gross_Margin_Rate{
+    height:15px;
+    line-height:14px;
+    margin:2px 0px 2px 1px;
+    padding-bottom:1px;
+    padding-right:2px;
+    background-color:rgba(255,255,255,0.83);
+    font-weight:bold;
+}
+
+<!--syw-->
+/*.pnl_area{
+    position:absolute;
+    width:163px;
+    height:163px;
+    border:2px solid rgba(255,255,255,0.2);
+    padding:4px 4px;
+    line-height:18px;
+    font-size:16px;
+    font-weight:bold;
+    color:#B3B3B3;
+    cursor:default;
+}
+
+.pnl_area_hover{
+    opacity:0.0;
+    position:absolute;
+    width:163px;
+    height:163px;
+    border:2px solid transparent;
+    padding:4px 4px;
+    line-height:18px;
+    font-size:16px;
+    font-weight:bold;
+    color:white;
+    cursor:default;
+ }*/
+<!--syw-->

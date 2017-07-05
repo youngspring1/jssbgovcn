@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>品証ダッシュボード</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	
+	<link rel="stylesheet" type="text/css" href="./css/FujitsuIP.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/panel_WorldArea.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/panel_Region.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/Header.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/world_html.css"/>
+	
+	<script src="./lib/jquery-1.12.3.min.js"></script>
+	<script src="./d3/d3.js"></script>
+	<script src="./js/SVGMaker.js"></script>
+	<script src="./js/PageControl.js"></script>
+	<script src="./lib/jquery.tinyscrollbar.min.js"></script>
+</head>
+<body>
+<style>
+	#scrollbararea {width:1306px; height:445px; clear: both; }
+	#scrollbararea .viewport { width: 1293px; height: 445px; overflow: hidden; position: relative;cursor:default; }
+	#scrollbararea .overview { list-style: none; position: absolute; left: 0px; top: 0px; }
+	#scrollbararea .thumb .end,
+	#scrollbararea .thumb { background-color: #7c7c7c; }
+	#scrollbararea .scrollbar { position: relative; float: right; width: 12px; top:0px;}
+	#scrollbararea .track { background-color: #434343; height: 100%; cursor: default;width:12px; position: relative; padding: 0px;border-radius:4px; }
+	#scrollbararea .thumb { height: 20px; width: 6px; overflow: hidden; position: absolute; top: 0;left:4px;border-radius:4px; }
+	#scrollbararea .thumb .end { overflow: hidden; height: 5px; width: 12px; }
+	#scrollbararea .disable{ display: none; }
+	.noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
+</style>
+<!-- Tool Tip -->
+<span id="toolTip"></span>
+<div id="content" style="position:absolute;width:1366px;height:768px;overflow:hidden;">
+
+		<!-- Header -->
+		<div id="header" class="header_areas" oncontextmenu="event.stopPropagation();return false;">
+			<div id="logo" class="header_area_logo"></div>
+			<div id="product_name" class="header_area_product_name">品質保証ダッシュボード</div>
+			<div class="year_select_left">
+				<img id="year_select_left" src="./img/arrow_back.png" onclick="getLastYearData();"/>	
+			</div>	
+			<div id="FX_selector" class="Year1">
+					<span id="dashboard_title_year"></span>
+					<span id="dashboard_subtitle">年度</span>
+			</div>
+			<div class="year_select_right">
+				<img id="year_select_right" src="./img/arrow_front.png" onclick="getNextYearData();"/>	
+			</div>	
+			<div id = "text_select" class="text_select">
+				<div id="selector_cost">コスト</div>
+				<div id="selectordiv" >
+					<input name="selectorx" id="selector_op" type="checkbox" onchange='changeSelect()'>
+					<label for="selector_op"></label>
+				</div>
+				
+				<div id="selector_risk">件数</div>
+			</div>
+			<div id="date" class="header_area_date"></div>
+			<div id="time" class="header_area_time">--:--</div>
+			<div id="unit" class="header_area_unit">単位:&nbsp;百万</div>
+		</div>
+
+		<table id="panel" style="position:absolute;top:32px;left:0;width:100%;border:0px;table-layout:fixed;">
+			<tr>
+				<td id="label_panel" style="padding:0px 0px 0px 10px;width:380px;vertical-align:middle;text-align:left;font-size:16px;text-align:left;color:white;height:34px;cursor:default;">
+					<span class="Title2" id="dashboard_title">■負のコスト</span>
+				</td>
+			</tr>
+		</table>
+	
+		<div id="page1_pic_display" class="pic_display">
+			<div id="page1_pic_display_title" class="pic_display_title" style="width:100%;height:50px;">
+			</div>
+			<div id="page1_pic_display_content" class="pic_display_content" style="width:100%;height:210px;">
+				<div style="width:220px;float:left">
+					<div style="height:50px;"><div style="height:20px;padding-top: 30px;font-weight: bold;">国内富士通グループ</div></div>
+					<div style="height:10px;width:150px;"><hr style="font-size: 0;opacity: 0.5;" /></div>
+					<div style="height:150px;">
+						<div>
+							<table>
+								<tr>
+									<td>総コスト</td>
+									<td>:</td>
+									<td id="td_japan_total_cost" style="width:50px;text-align: right;"></td>
+								</tr>
+								<tr>
+									<td>商品修理費</td>
+									<td>:</td>
+									<td id="td_japan_repair_cost" style="width:50px;text-align: right;"></td>
+								</tr>
+								<tr>
+									<td>製品保証引当金</td>
+									<td>:</td>
+									<td id="td_japan_provision_cost" style="width:50px;text-align: right;"></td>
+								</tr>
+								<tr>
+									<td>仕損費</td>
+									<td>:</td>
+									<td id="td_japan_scrap_cost" style="width:50px;text-align: right;"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div id="piezone" class="piezone" style="position:absolute;left:198px;top: 23px;" >
+					<table style="color:white;table-layout:fixed" width = 1134px >
+						<tr>
+							<td colspan=556 style="padding:2px 0px 0px 15px;width:552px;">
+								<span class="Title2">■負のコスト予実</span>
+							</td>
+							<td colspan=540 style="padding:2px 0px 0px 15px;text-align: right;">
+								<span class="Title2" style="color:#787878">■</span><span class="Title2">(Dark):予算    </span><span class="Title2" style="color:#e2e2e2">■</span><span class="Title2">(Bright):実績</span>
+							</td>
+	
+						</tr>
+						<tr>
+							<td colspan=556 style="padding:6px 0px 0px 15px;">
+								<span class="Basic">内訳</span>
+							</td>
+							<td colspan=556 style="padding:6px 0px 0px 15px;">
+								<span class="Basic">累積</span>
+							</td>
+						</tr>
+						<tr>
+							<td colspan=556 height ="1px" style="padding:2px 0px 0px 15px;">
+								<div style="width:530px;height:1px;background-color:#EFEFEF;opacity: 0.5"></div>
+							</td>
+							<td colspan=556 height ="1px" style="padding:2px 0px 0px 15px;">
+								<div style="width:526px;height:1px;background-color:#EFEFEF;opacity: 0.5"></div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan=1112></br></td>
+						</tr>
+						<tr>
+							<td colspan=178>
+								<div>
+									<div style="padding:4px 15px 0px 21px;position: absolute;" class="bigPie" id="month_big_pie_completed"></div>
+									<div style="padding:4px 15px 0px 21px;" class="bigPie" id="month_big_pie"></div>
+									<div class="bigPieLegend" id="month_big_pie_legend"></div>
+								</div>
+							</td>
+							<td colspan=126 align="center">
+								<div class="smallPie_title">
+									<svg height="15" width="80" >
+										<text x="42" y="10" fill="white"  text-anchor="middle" style="font-size:8px;">商品修理費</text>
+									</svg>
+								</div>
+								<div>
+									<div class="smallPie" id="month_product_repair_pie_completed" style="padding:3px 3px 0px 21px;position: absolute;"></div>
+									<div class="smallPie" id="month_product_repair_pie" style="padding:3px 3px 0px 21px;"></div>
+								</div>
+								<div class="smallPieLegend" id="month_product_repair_pie_legend"></div>
+							</td>
+							<td colspan=126>
+								<div class="smallPie_title">
+									<svg height="15" width="100">
+										<text x="52" y="10" fill="white"  text-anchor="middle" style="font-size:8px;">製品保証引当金</text>
+									</svg>
+								</div>
+								<div>
+									<div class="smallPie" id="month_product_provision_pie_completed" style="padding:3px 3px 0px 21px;position: absolute;"></div>
+									<div class="smallPie" id="month_product_provision_pie" style="padding:3px 3px 0px 21px;"></div>
+								</div>
+								<div class="smallPieLegend" id="month_product_provision_pie_legend"></div>
+							</td>
+							<td colspan=126>
+								<div class="smallPie_title">
+									<svg height="15" width="80">
+										<text x="45" y="10" fill="white"  text-anchor="middle" style="font-size:8px;">仕損費</text>
+									</svg>
+								</div>
+								<div>
+									<div class="smallPie" id="month_scrap_pie_completed" style="padding:3px 3px 0px 24px;position: absolute;"></div>
+									<div class="smallPie" id="month_scrap_pie" style="padding:3px 3px 0px 24px;"></div>
+								</div>
+								<div class="smallPieLegend" id="month_scrap_pie_legend"></div>
+							</td>
+							<td colspan=6>
+							</td>
+							<td colspan=556>
+								<div class="linechart1" id="patent_reg_line_chart" style="padding:0px 0px 0px 0px;"></div>
+							</td>
+							<td colspan=6>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div id="page1_data_display" class="data_display">
+			<div style="width:1308px;height:43px">
+				<table class="table_header"><tr id="table_header_tr" class="table_header_tr"></tr></table>
+			</div>
+			<div id="scrollbararea"  style="padding-top: 4px;">
+				<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+				
+				<div class="viewport" style="height: 366px;">
+					<div class="overview">
+						<table id="cost_table_context" class="cost_table_context">
+							
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--copyright -->
+		<div class="foot">
+			Copyright 2017 FUJITSU LIMITED | <img height=10 width=10 src="./img/SecretLevelMark.png" />&nbsp;Confidential Material / Restricted Access
+		</div>
+	
+	
+</div>
+
+<script>
+window.onload = function() {
+	Initialize_Cockpit();
+	setContentSize();
+}
+
+window.onresize = function() {
+	setContentSize();
+}
+
+</script>
+</body>
+</html>

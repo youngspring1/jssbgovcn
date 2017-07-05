@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>江苏省统计局</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="./css/header.css"/>
+    
+    <!-- js -->
+    <script src="./lib/jquery-3.2.1.js"></script>
+    <script src="./lib/echarts.js"></script>
+    <script src="./lib/timelineOption.js"></script>
+    <!-- 引入电量地图 electricitymap.js -->
+    <script src="./js/electricitymap.js"></script>
+    <!-- 引入主题 dark.js -->
+    <script src="./theme/dark.js"></script>
+</head>
+<body onload="initPage();">
+    <div id="content" style="position:absolute; width:1366px; height:768px; overflow:hidden;">
+        <!-- header -->
+        <div id="header" class="header_area">
+            <div id="logo" class="header_area_logo"></div>
+            <!-- <div id="product_name" class="header_area_product_name">江苏省统计局</div> -->
+            <div class="year_select_left">
+                <img id="year_select_left" src="./img/arrow_back.png" onclick="getLastYearData();"/>    
+            </div>    
+            <div id="FX_selector" class="Year1">
+                    <span id="dashboard_title_year">2016</span>
+                    <span id="dashboard_subtitle">年度</span>
+            </div>
+            <div class="year_select_right">
+                <img id="year_select_right" src="./img/arrow_front.png" onclick="getNextYearData();"/>    
+            </div>
+            <div id="date" class="header_area_date"></div>
+            <div id="time" class="header_area_time">--:--</div>
+            <!-- <div id="unit" class="header_area_unit"></div> -->
+
+        </div>
+        <!-- electricity map -->
+        <div id="map" style="position:absolute; top:103px; left:0px; width:500px; height:600px;">
+            <div id="jsmap" style="width:500px; height:590px;" ></div>
+            <div>
+                <select id="mselect" onchange="initMap(this.value)">
+                    <option value="0">1月</option>
+                    <option value="1" selected="selected">2月</option>
+                    <option value="2">3月</option>
+                    <option value="3">4月</option>
+                    <option value="4">5月</option>
+                    <option value="5">6月</option>
+                    <option value="6">7月</option>
+                    <option value="7">8月</option>
+                    <option value="8">9月</option>
+                    <option value="9">10月</option>
+                    <option value="10">11月</option>
+                    <option value="11">12月</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- desposit and loan -->
+        <div id="despositloan">
+        </div>
+
+
+
+    </div>
+</body>
+</html>
