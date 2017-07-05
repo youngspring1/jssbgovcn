@@ -11,6 +11,7 @@
     
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="./css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/content.css"/>
     
     <!-- js -->
     <script src="./lib/jquery-3.2.1.js"></script>
@@ -22,7 +23,7 @@
     <script src="./theme/dark.js"></script>
 </head>
 <body onload="initPage();">
-    <div id="content" style="position:absolute; width:1366px; height:768px; overflow:hidden;">
+    <div id="content">
 
         <!-- header -->
         <div id="header" class="header_area">
@@ -44,13 +45,11 @@
         </div>
 
         <!-- electricity map -->
-        <div id="map" style="position:absolute; top:103px; left:0px;">
-
-            <div id="jsmap" style="width:500px; height:665px;" >
-            	
+        <div id="map" class="content_map">
+            <div id="jsmap" class="content_jsmap">
             </div>
-            <div style="position:absolute; top:10px; left:390px;">
-                <select id="mselect" onchange="initMap(this.value)" style="width:100px; height:30px;">
+            <div class="content_selector">
+                <select id="mselect" class="content_month_selector" onchange="initMap(this.value)">
                     <option value="0">1月</option>
                     <option value="1" selected="selected">2月</option>
                     <option value="2">3月</option>
@@ -68,9 +67,9 @@
         </div>
 
         <!-- desposit and loan -->
-        <div style="position:absolute; top:103px; left:516px;">
-        <div id="timelinediv" style="width:850px; height:665px;">
-        </div>
+        <div class="content_timeline">
+            <div id="timelinediv" class="content_timeline_div">
+            </div>
         </div>
     </div>
 </body>

@@ -7,7 +7,7 @@ function initPage() {
 
 function initDepositloan() {
     // 基于准备好的dom,初始化echarts实例
-    var timelineChart = echarts.init(document.getElementById('timelinediv'), 'dark');
+    var timelineChart = echarts.init(document.getElementById('timelinediv'));
     // timelineChart.showLoading();
 
     var option = {
@@ -31,7 +31,7 @@ function initDepositloan() {
             yAxis: { 
                     type: 'value', 
                     // name: '亿元'
-                    max: 30000
+                    max: 30000,
             },
             series: [
                 {
@@ -53,6 +53,10 @@ function initDepositloan() {
             },
             title: {
                 text: '江苏省各市存贷款',
+                textStyle: {  
+                    fontWeight: 'normal',
+                    color: 'white',
+                },
                 // subtext: '江苏省统计局',
                 // sublink: 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
             }
@@ -200,7 +204,7 @@ function initDepositloan() {
 
 function initMap(mon) {
     // 基于准备好的dom，初始化echarts实例
-    var myMapChart = echarts.init(document.getElementById('jsmap'), 'dark');
+    var myMapChart = echarts.init(document.getElementById('jsmap'));
 
     // load map
     $.get('./map/jiangsu.json', function (geoJson) {
@@ -223,7 +227,11 @@ function initMap(mon) {
             title: {
                 text: '江苏省各市每月用电量',
                 // subtext: '江苏省统计局',
-                sublink: 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
+                // sublink: 'http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/2016/'
+                textStyle: {  
+                    fontWeight: 'normal',
+                    color: 'white',
+                },
             },
             tooltip: {
                 trigger: 'item',
@@ -241,6 +249,7 @@ function initMap(mon) {
                 }
             },
             visualMap: {
+                type: 'continuous',
                 min: 0,
                 max: 120,
                 text:['High','Low'],
