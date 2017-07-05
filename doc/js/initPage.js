@@ -229,7 +229,7 @@ function initMap(mon) {
     var myMapChart = echarts.init(document.getElementById('jsmap'));
 
     // load map
-    $.get('./jiangsu.json', function (geoJson) {
+    $.get('./map/jiangsu.json', function (geoJson) {
         myMapChart.hideLoading();
         echarts.registerMap('jiangsu', geoJson);
 
@@ -312,7 +312,7 @@ function initMap(mon) {
 
 
 
-        
+
     });
 
 
@@ -324,4 +324,28 @@ function getLastYearData() {
 
 function getNextYearData() {
     console.log("getNextYearData not yet...");
+}
+
+function setContentSize() {
+    var zoom = 1;
+        var zoomY = document.documentElement.clientHeight / 768;
+        var zoomX = document.documentElement.clientWidth / 1366;
+        zoom = (zoomY > zoomX) ? zoomX : zoomY;
+
+        d3.select("#content").style("left", ((document.documentElement.clientWidth - (1366 * zoom)) / 2) + "px")  //表示領域幅
+                             .style("top", ((document.documentElement.clientHeight - (768 * zoom)) / 2) + "px")  //表示領域高
+                             .style("zoom", zoom);
+        d3.select("#BG").style("left", ((document.documentElement.clientWidth - (1366 * zoom)) / 2) + "px")  //表示領域幅
+                        .style("top", ((document.documentElement.clientHeight - (768 * zoom)) / 2) + (66 * zoom) + "px")  //表示領域高
+                        .style("zoom", zoom);
+
+        $("#scrollbararea").tinyscrollbar_update();
+
+        if(zoom <= 1.104){
+            $(".cost_table_context").css("border-spacing", "3px");
+            $(".table_header").css("border-spacing", "2px");
+        }if(zoom <=0.494){
+            $(".cost_table_context").css("border-spacing", "4px");
+            $(".table_header").css("border-spacing", "2px");
+        }
 }

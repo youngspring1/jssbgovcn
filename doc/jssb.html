@@ -22,7 +22,7 @@
     <!-- 引入主题 dark.js -->
     <script src="./theme/dark.js"></script>
 </head>
-<body onload="initPage();">
+<body>
     <div id="content">
 
         <!-- header -->
@@ -78,5 +78,15 @@
         </div>
 
     </div>
+    <script>
+        window.onload = function() {
+            initPage();
+            setContentSize();
+        }
+        window.onresize = function() {
+            initPage();
+            setContentSize();
+        }
+    </script>
 </body>
 </html>
