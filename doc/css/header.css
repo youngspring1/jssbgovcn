@@ -1,6 +1,10 @@
 ﻿/* 
  * header CSS
  */
+body{
+    font-family: Merryo UI;
+    background-color: black;
+}
 
 .header_area{
     opacity:1.0;

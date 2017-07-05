@@ -332,12 +332,12 @@ function setContentSize() {
         var zoomX = document.documentElement.clientWidth / 1366;
         zoom = (zoomY > zoomX) ? zoomX : zoomY;
 
-        d3.select("#content").style("left", ((document.documentElement.clientWidth - (1366 * zoom)) / 2) + "px")  //表示領域幅
-                             .style("top", ((document.documentElement.clientHeight - (768 * zoom)) / 2) + "px")  //表示領域高
-                             .style("zoom", zoom);
-        d3.select("#BG").style("left", ((document.documentElement.clientWidth - (1366 * zoom)) / 2) + "px")  //表示領域幅
-                        .style("top", ((document.documentElement.clientHeight - (768 * zoom)) / 2) + (66 * zoom) + "px")  //表示領域高
-                        .style("zoom", zoom);
+        $("#content").css("left", ((document.documentElement.clientWidth - (1366 * zoom)) / 2) + "px")  //表示領域幅
+                             .css("top", ((document.documentElement.clientHeight - (768 * zoom)) / 2) + "px")  //表示領域高
+                             .css("zoom", zoom);
+        $("#BG").css("left", ((document.documentElement.clientWidth - (1366 * zoom)) / 2) + "px")  //表示領域幅
+                        .css("top", ((document.documentElement.clientHeight - (768 * zoom)) / 2) + (66 * zoom) + "px")  //表示領域高
+                        .css("zoom", zoom);
 
         $("#scrollbararea").tinyscrollbar_update();
 
