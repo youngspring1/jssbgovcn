@@ -43,7 +43,7 @@
     width:7px;
     text-align:right;
     height:12px;
-    cursor:default;
+    cursor:pointer;
 }
 
 .year_select_right{
@@ -54,7 +54,7 @@
     width:7px;
     text-align:right;
     height:12px;
-    cursor:default;
+    cursor:pointer;
 }
 
 .Year1 {
@@ -80,25 +80,25 @@
 
 .header_area_date{
     position:absolute;
-    top:80px;
-    left:1070px;
+    top:75px;
+    left:1150px;
     width:130px;
     height:13px;
     text-align:right;
     color:white;
-    font-size:12px;
+    font-size:16px;
     cursor:default;
 }
 
 .header_area_time{
     position:absolute;
-    top:80px;
-    left:1210px;
+    top:75px;
+    left:1300px;
     width:35px;
     height:13px;
     text-align:right;
     color:white;
-    font-size:13px;
+    font-size:16px;
     cursor:default;
 }
 

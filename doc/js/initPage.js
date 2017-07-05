@@ -3,6 +3,28 @@
 function initPage() {
     initMap(2);
     initDepositloan();
+    setDate();
+}
+
+function setDate() {
+    var MonthTbl = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+    var DateTbl = new Array("Sun.", "Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat.");
+    var DateTime = new Date();
+
+    var Today_Month = DateTime.getMonth();
+    var Today_Date = DateTime.getDate();
+    var Today_Day = DateTime.getDay();
+
+    var DateString = DateTbl[Today_Day] + " " + MonthTbl[Today_Month] + " " + Today_Date;
+
+    //date
+    $("#date").text(DateString)
+
+    //time
+    var UTCHours = DateTime.getUTCHours();
+    var UTCMinutes = DateTime.getUTCMinutes();
+    var UTCSeconds = DateTime.getUTCSeconds();
+    $("#time").text(DateTime.getHours() + ":" + DateTime.getMinutes());
 }
 
 function initDepositloan() {
@@ -207,7 +229,7 @@ function initMap(mon) {
     var myMapChart = echarts.init(document.getElementById('jsmap'));
 
     // load map
-    $.get('./map/jiangsu.json', function (geoJson) {
+    $.get('./jiangsu.json', function (geoJson) {
         myMapChart.hideLoading();
         echarts.registerMap('jiangsu', geoJson);
     });
@@ -290,3 +312,10 @@ function initMap(mon) {
     });
 }
 
+function getLastYearData() {
+    console.log("getLastYearData not yet...");
+}
+
+function getNextYearData() {
+    console.log("getNextYearData not yet...");
+}
