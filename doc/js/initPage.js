@@ -328,24 +328,22 @@ function getNextYearData() {
 
 function setContentSize() {
     var zoom = 1;
-        var zoomY = document.documentElement.clientHeight / 768;
-        var zoomX = document.documentElement.clientWidth / 1366;
-        zoom = (zoomY > zoomX) ? zoomX : zoomY;
+    var zoomY = document.documentElement.clientHeight / 768;
+    var zoomX = document.documentElement.clientWidth / 1366;
+    zoom = (zoomY > zoomX) ? zoomX : zoomY;
 
-        $("#content").css("left", ((document.documentElement.clientWidth - (1366 * zoom)) / 2) + "px")  //表示領域幅
-                             .css("top", ((document.documentElement.clientHeight - (768 * zoom)) / 2) + "px")  //表示領域高
-                             .css("zoom", zoom);
-        $("#BG").css("left", ((document.documentElement.clientWidth - (1366 * zoom)) / 2) + "px")  //表示領域幅
-                        .css("top", ((document.documentElement.clientHeight - (768 * zoom)) / 2) + (66 * zoom) + "px")  //表示領域高
-                        .css("zoom", zoom);
+    $("#content").css("left", ((document.documentElement.clientWidth - (1366 * zoom)) / 2) + "px")  //表示領域幅
+                         .css("top", ((document.documentElement.clientHeight - (768 * zoom)) / 2) + "px")  //表示領域高
+                         .css("zoom", zoom);
+    $("#BG").css("left", ((document.documentElement.clientWidth - (1366 * zoom)) / 2) + "px")  //表示領域幅
+                    .css("top", ((document.documentElement.clientHeight - (768 * zoom)) / 2) + (66 * zoom) + "px")  //表示領域高
+                    .css("zoom", zoom);
 
-        $("#scrollbararea").tinyscrollbar_update();
-
-        if(zoom <= 1.104){
-            $(".cost_table_context").css("border-spacing", "3px");
-            $(".table_header").css("border-spacing", "2px");
-        }if(zoom <=0.494){
-            $(".cost_table_context").css("border-spacing", "4px");
-            $(".table_header").css("border-spacing", "2px");
-        }
+    if(zoom <= 1.104){
+        $(".cost_table_context").css("border-spacing", "3px");
+        $(".table_header").css("border-spacing", "2px");
+    }if(zoom <=0.494){
+        $(".cost_table_context").css("border-spacing", "4px");
+        $(".table_header").css("border-spacing", "2px");
+    }
 }
