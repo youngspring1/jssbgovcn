@@ -14,25 +14,25 @@
 开发爬虫获取统计局的公开信息。    
 公开页面：江苏省统计局 > 统计信息公开 > 统计数据 > 进度数据 > YYYY年度    
 链接：http://www.jssb.gov.cn/tjxxgk/tjsj/jdsj/{YYYY}/   
-爬虫：/crawler   
+爬虫目录：/crawler   
 
         01.getURLList.py.........获取该年份的所有链接   
         02.getElectricity.py.....获取该年份的用电量统计   
         04.getDepositloan.py.....获取该年份的存款贷款信息   
 
 注意：统计局不统计1月份的数据，可能是过年放假不上班:-P
-爬取到的数据，按照后面的展示的需要，生成json文件，放在data目录下。
+爬取到的数据，按照后面的展示的需要，生成json文件，放在/data目录下。
 
 ##### 3.原型图表开发
 目前使用的是百度的[echarts](http://echarts.baidu.com/)生成可视化图形。   
 你也可以使用[d3.js](https://d3js.org/)等其他工具。   
-生成的草稿，都是单个的图形，见下面页面：   
+首先生成单个的原型图表，可以当成草稿，可能需要根据图表的需要，修改前面一步中生成的json数据。原型图表见下面页面：   
 [按地区展示用电量，可手动选择月份](https://youngspring1.github.io/jssbgovcn/doc/01.map.html)   
 [直方图展示各地区用电量，自动遍历月份](https://youngspring1.github.io/jssbgovcn/doc/02.electricity.html)   
 [直方图展示各地区存款贷款情况，自动遍历月份](https://youngspring1.github.io/jssbgovcn/doc/04.depositloan.html)  
 
 ##### 4.可视化页面设计
-页面设计请咨询专业人员。   
+页面设计请咨询专业人员，近期可以灵活利用BICC的设计案，把图替换成我们的数据。   
 
 ##### 5.可视化页面开发
 按照设计方案实现页面。   
